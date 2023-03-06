@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int sum()
+{
+	int s = 1;
+	printf("1");
+	for(int i = 2; i<=10; i++)
+	{
+		printf("+%d", i);
+		s+=i;
+	}
+	return s;
+}
+int mul()
+{
+	int s = 1;
+	printf("1");
+	for(int i = 2; i<=10; i++)
+	{
+		printf("x%d", i);
+		s*=i;
+	}
+	return s;
+}
+int calc(int a,int b, char c)
+{
+	int s=-1;
+	switch(c)
+	{
+		case '+':
+			s = sum(a,b);
+			return s;
+			
+		case '*':
+		case 'X':
+		case 'x':
+			s = mul(a,b);
+			return s;
+		default:
+			printf("\nerror!\n");
+			break;
+	}
+	
+	return s;
+}
+
+int main(void) {
+	
+	int s = calc(1,10,'+');
+	printf("\ntotal=%d\n", s);
+	s = calc(1,10,'x');
+	printf("\ntotal=%d\n", s);
+	s = calc(1,10,'X');
+	printf("\ntotal=%d\n", s);
+	s = calc(1,10,'*');
+	printf("\ntotal=%d\n", s);
+	s = calc(1,10,'-'); //예외
+	s != -1 ? printf("\ntotal=%d\n", s) : printf("");
+	return 0;
+}
